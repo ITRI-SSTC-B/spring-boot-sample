@@ -12,5 +12,11 @@ pipeline {
         junit ' target/surefire-reports/*.xml'
       }
     }
+    stage('package') {
+      steps {
+        sh 'mvn package'
+        archiveArtifacts 'wget http://localhost:8080/jnlpJars/jenkins-cli.jar'
+      }
+    }
   }
 }

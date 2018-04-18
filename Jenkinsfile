@@ -15,7 +15,7 @@ pipeline {
     stage('package') {
       steps {
         sh 'mvn package'
-        archiveArtifacts 'wget http://localhost:8080/jnlpJars/jenkins-cli.jar'
+        archiveArtifacts 'target/spring-boot-sample-data-rest-0.1.0.jar'
       }
     }
   }
